@@ -62,4 +62,17 @@ public class ProabilityTest {
 		assertEquals(probabilityOf("0.625"), sut.either(probabilityOf("0.25")));
 	}
 	
+	
+	
+	@Test(timeout=1000)
+	public void should_complete_a_half_a_million_either_operations_in_a_second() throws Exception {
+		Probability pA = probabilityOf("0.4");
+		Probability pB = probabilityOf("0.3");
+		
+		for (int i = 0; i < 5000000; i++) {
+			
+			pA.either(pB);
+		}
+	}
+	
 }
